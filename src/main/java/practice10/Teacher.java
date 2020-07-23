@@ -26,17 +26,19 @@ public class Teacher extends Person {
     }
 
     public String introduce(){
-        if(klass == null)
+        if(classes == null)
             intro = basicIntro + " I am a Teacher. I teach No Class.";
         else{
-            int[] classTeach = new int[6];
-            int i=0;
-            for (Klass klass : classes) {
-                classTeach[i++] = klass.getNumber();
+            String classTeach = "";
+            for (int i=0; i<classes.size(); i++) {
+                if(i != classes.size()-1){
+                    classTeach += classes.get(i).getNumber() + ", ";
+                }
+                else{
+                    classTeach += classes.get(i).getNumber();
+                }
             }
-
-            String str = Arrays.toString(classTeach);
-            intro = basicIntro + " I am a Teacher. I teach " + klass.getDisplayName() + String.join(", ", str) + ".";;
+            intro = basicIntro + " I am a Teacher. I teach Class " + classTeach + ".";
         }
 
         return intro;
