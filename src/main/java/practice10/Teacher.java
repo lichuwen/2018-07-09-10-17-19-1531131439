@@ -26,7 +26,7 @@ public class Teacher extends Person {
     }
 
     public String introduce(){
-        if(classes == null)
+        if(classes.isEmpty())
             intro = basicIntro + " I am a Teacher. I teach No Class.";
         else{
             String classTeach = "";
@@ -45,7 +45,7 @@ public class Teacher extends Person {
     }
     public String introduceWith(Student student){
         String stuName = student.getName();
-        if(this.klass == student.klass)
+        if(isTeaching(student))
             intro = basicIntro + " I am a Teacher. I teach " + stuName + ".";
         else
             intro = basicIntro + " I am a Teacher. I don't teach " + stuName + ".";
